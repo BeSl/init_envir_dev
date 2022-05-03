@@ -1,0 +1,21 @@
+{
+  "name": "one-c-settings-dev-environment",
+  "version": "1.0.0",
+  "description": "Настройки окружения разработки для баз 1с",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server",
+    "dev": "nodemon src/server"
+  },
+  "author": "Belyakov Vyacheslav",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.6.0",
+    "express": "^4.18.1",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
