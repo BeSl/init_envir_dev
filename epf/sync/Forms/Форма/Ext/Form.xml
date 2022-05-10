@@ -1,24 +1,50 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.10">
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаПолучитьНастройки" id="1">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ПолучитьНастройки</CommandName>
-				<ExtendedTooltip name="ФормаПолучитьНастройкиРасширеннаяПодсказка" id="2"/>
-			</Button>
-			<Button name="ФормаОтправитьНовыеНастройки" id="3">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ОтправитьНовыеНастройки</CommandName>
-				<ExtendedTooltip name="ФормаОтправитьНовыеНастройкиРасширеннаяПодсказка" id="4"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<CommandBarLocation>None</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 	</Events>
 	<ChildItems>
+		<InputField name="РежимОбработки" id="77">
+			<DataPath>РежимОбработки</DataPath>
+			<ChoiceButton>true</ChoiceButton>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ContextMenu name="РежимОбработкиКонтекстноеМеню" id="78"/>
+			<ExtendedTooltip name="РежимОбработкиРасширеннаяПодсказка" id="79"/>
+			<Events>
+				<Event name="OnChange">РежимОбработкиПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаГлавныеКоманды" id="115">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа главные команды</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа главные команды</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаГлавныеКомандыРасширеннаяПодсказка" id="116"/>
+			<ChildItems>
+				<Button name="ФормаПолучитьНастройки" id="1">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ПолучитьНастройки</CommandName>
+					<ExtendedTooltip name="ФормаПолучитьНастройкиРасширеннаяПодсказка" id="2"/>
+				</Button>
+				<Button name="ФормаОтправитьНовыеНастройки" id="3">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ОтправитьНовыеНастройки</CommandName>
+					<ExtendedTooltip name="ФормаОтправитьНовыеНастройкиРасширеннаяПодсказка" id="4"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 		<UsualGroup name="Группа1" id="36">
 			<Title>
 				<v8:item>
@@ -66,8 +92,20 @@
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<Pages name="Группа4" id="45">
-			<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="46"/>
+		<Pages name="ГруппаПодготовкаДанных" id="45">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа подготовка данных</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа подготовка данных</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаПодготовкаДанныхРасширеннаяПодсказка" id="46"/>
 			<ChildItems>
 				<Page name="ГруппаКонфигурация" id="47">
 					<Title>
@@ -142,6 +180,9 @@
 								<ContextMenu name="МетаданныеКонфигурацииУправлениеПоискомКонтекстноеМеню" id="16"/>
 								<ExtendedTooltip name="МетаданныеКонфигурацииУправлениеПоискомРасширеннаяПодсказка" id="17"/>
 							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">МетаданныеКонфигурацииВыбор</Event>
+							</Events>
 							<ChildItems>
 								<InputField name="МетаданныеКонфигурацииТип" id="18">
 									<DataPath>МетаданныеКонфигурации.Имя</DataPath>
@@ -182,6 +223,18 @@
 					</ToolTip>
 					<ExtendedTooltip name="ГруппаНастройкаРасширеннаяПодсказка" id="50"/>
 					<ChildItems>
+						<LabelDecoration name="ДекорацияРедактируемыйТип" id="85">
+							<TextColor>#316EFF</TextColor>
+							<Font ref="style:NormalTextFont" height="14" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Декорация редактируемый тип</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияРедактируемыйТипКонтекстноеМеню" id="86"/>
+							<ExtendedTooltip name="ДекорацияРедактируемыйТипРасширеннаяПодсказка" id="87"/>
+						</LabelDecoration>
 						<Table name="ИзменяемыеДанные" id="51">
 							<Representation>List</Representation>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -192,6 +245,17 @@
 							<ContextMenu name="ИзменяемыеДанныеКонтекстноеМеню" id="52"/>
 							<AutoCommandBar name="ИзменяемыеДанныеКоманднаяПанель" id="53">
 								<ChildItems>
+									<Button name="ИзменяемыеДанныеВернутьсяКДеревуМетаданных" id="117">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ВернутьсяКДеревуМетаданных</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Отмена</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ИзменяемыеДанныеВернутьсяКДеревуМетаданныхРасширеннаяПодсказка" id="118"/>
+									</Button>
 									<Button name="ИзменяемыеДанныеНастройкаГотова" id="75">
 										<Type>CommandBarButton</Type>
 										<DefaultItem>true</DefaultItem>
@@ -225,23 +289,97 @@
 								<ContextMenu name="ИзменяемыеДанныеУправлениеПоискомКонтекстноеМеню" id="62"/>
 								<ExtendedTooltip name="ИзменяемыеДанныеУправлениеПоискомРасширеннаяПодсказка" id="63"/>
 							</SearchControlAddition>
+							<Events>
+								<Event name="OnEditEnd">ИзменяемыеДанныеПриОкончанииРедактирования</Event>
+								<Event name="BeforeAddRow">ИзменяемыеДанныеПередНачаломДобавления</Event>
+							</Events>
 							<ChildItems>
-								<InputField name="ИзменяемыеДанныеТип" id="64">
-									<DataPath>ИзменяемыеДанные.Тип</DataPath>
+								<InputField name="ИзменяемыеДанныеТекущееЗначение" id="82">
+									<DataPath>ИзменяемыеДанные.ТекущееЗначение</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ИзменяемыеДанныеТипКонтекстноеМеню" id="65"/>
-									<ExtendedTooltip name="ИзменяемыеДанныеТипРасширеннаяПодсказка" id="66"/>
+									<ContextMenu name="ИзменяемыеДанныеТекущееЗначениеКонтекстноеМеню" id="83"/>
+									<ExtendedTooltip name="ИзменяемыеДанныеТекущееЗначениеРасширеннаяПодсказка" id="84"/>
+								</InputField>
+								<InputField name="ИзменяемыеДанныеОперация" id="70">
+									<DataPath>ИзменяемыеДанные.Операция</DataPath>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ContextMenu name="ИзменяемыеДанныеОперацияКонтекстноеМеню" id="71"/>
+									<ExtendedTooltip name="ИзменяемыеДанныеОперацияРасширеннаяПодсказка" id="72"/>
+									<Events>
+										<Event name="OnChange">ИзменяемыеДанныеОперацияПриИзменении</Event>
+									</Events>
 								</InputField>
 								<InputField name="ИзменяемыеДанныеЗначение" id="67">
-									<DataPath>ИзменяемыеДанные.Значение</DataPath>
+									<DataPath>ИзменяемыеДанные.НовоеЗначение</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="ИзменяемыеДанныеЗначениеКонтекстноеМеню" id="68"/>
 									<ExtendedTooltip name="ИзменяемыеДанныеЗначениеРасширеннаяПодсказка" id="69"/>
 								</InputField>
-								<InputField name="ИзменяемыеДанныеОперация" id="70">
-									<DataPath>ИзменяемыеДанные.Операция</DataPath>
-									<ContextMenu name="ИзменяемыеДанныеОперацияКонтекстноеМеню" id="71"/>
-									<ExtendedTooltip name="ИзменяемыеДанныеОперацияРасширеннаяПодсказка" id="72"/>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Группа4" id="88">
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="89"/>
+					<ChildItems>
+						<Table name="ВсеДанные" id="90">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>ВсеДанные</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ВсеДанныеКонтекстноеМеню" id="91"/>
+							<AutoCommandBar name="ВсеДанныеКоманднаяПанель" id="92"/>
+							<ExtendedTooltip name="ВсеДанныеРасширеннаяПодсказка" id="93"/>
+							<SearchStringAddition name="ВсеДанныеСтрокаПоиска" id="94">
+								<AdditionSource>
+									<Item>ВсеДанные</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ВсеДанныеСтрокаПоискаКонтекстноеМеню" id="95"/>
+								<ExtendedTooltip name="ВсеДанныеСтрокаПоискаРасширеннаяПодсказка" id="96"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ВсеДанныеСостояниеПросмотра" id="97">
+								<AdditionSource>
+									<Item>ВсеДанные</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ВсеДанныеСостояниеПросмотраКонтекстноеМеню" id="98"/>
+								<ExtendedTooltip name="ВсеДанныеСостояниеПросмотраРасширеннаяПодсказка" id="99"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ВсеДанныеУправлениеПоиском" id="100">
+								<AdditionSource>
+									<Item>ВсеДанные</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ВсеДанныеУправлениеПоискомКонтекстноеМеню" id="101"/>
+								<ExtendedTooltip name="ВсеДанныеУправлениеПоискомРасширеннаяПодсказка" id="102"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="ВсеДанныеТипИмя" id="103">
+									<DataPath>ВсеДанные.ТипИмя</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ВсеДанныеТипИмяКонтекстноеМеню" id="104"/>
+									<ExtendedTooltip name="ВсеДанныеТипИмяРасширеннаяПодсказка" id="105"/>
+								</InputField>
+								<InputField name="ВсеДанныеДействие" id="106">
+									<DataPath>ВсеДанные.Действие</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ВсеДанныеДействиеКонтекстноеМеню" id="107"/>
+									<ExtendedTooltip name="ВсеДанныеДействиеРасширеннаяПодсказка" id="108"/>
+								</InputField>
+								<InputField name="ВсеДанныеСсылка" id="109">
+									<DataPath>ВсеДанные.Ссылка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ВсеДанныеСсылкаКонтекстноеМеню" id="110"/>
+									<ExtendedTooltip name="ВсеДанныеСсылкаРасширеннаяПодсказка" id="111"/>
+								</InputField>
+								<InputField name="ВсеДанныеНовоеЗначение" id="112">
+									<DataPath>ВсеДанные.НовоеЗначение</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ВсеДанныеНовоеЗначениеКонтекстноеМеню" id="113"/>
+									<ExtendedTooltip name="ВсеДанныеНовоеЗначениеРасширеннаяПодсказка" id="114"/>
 								</InputField>
 							</ChildItems>
 						</Table>
@@ -249,6 +387,21 @@
 				</Page>
 			</ChildItems>
 		</Pages>
+		<UsualGroup name="ГруппаОчисткаБазы" id="80">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа очистка базы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа очистка базы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаОчисткаБазыРасширеннаяПодсказка" id="81"/>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -347,16 +500,16 @@
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
+							<v8:Length>150</v8:Length>
 							<v8:AllowedLength>Variable</v8:AllowedLength>
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="Значение" id="2">
+				<Column name="НовоеЗначение" id="2">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Значение</v8:content>
+							<v8:content>Новое значение</v8:content>
 						</v8:item>
 					</Title>
 					<Type/>
@@ -375,6 +528,15 @@
 							<v8:AllowedLength>Variable</v8:AllowedLength>
 						</v8:StringQualifiers>
 					</Type>
+				</Column>
+				<Column name="ТекущееЗначение" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущее значение</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
 				</Column>
 			</Columns>
 		</Attribute>
@@ -512,6 +674,21 @@
 				</Column>
 			</Columns>
 		</Attribute>
+		<Attribute name="РежимОбработки" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим обработки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="ПолучитьНастройки" id="1">
@@ -533,7 +710,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Отправить новые настройки</v8:content>
+					<v8:content>Обновить настройки</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -563,7 +740,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Готово</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -573,6 +750,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>НастройкаГотова</Action>
+		</Command>
+		<Command name="ВернутьсяКДеревуМетаданных" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вернуться к дереву метаданных</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вернуться к дереву метаданных</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВернутьсяКДеревуМетаданных</Action>
 		</Command>
 	</Commands>
 </Form>
